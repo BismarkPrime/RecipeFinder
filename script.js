@@ -9,18 +9,19 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
    myUrl += "/http://www.recipepuppy.com/api/?q=" + value;
   useJSON();
   async function fetchRecipeJSON() {
-    const response = await fetch(url);
-    if (!response.ok) {
-      console.log("ERROR: the url wasn't valid")
-    }
-    const recipeJSON = await response.json;
+    const response = await fetch(myUrl, {mode: 'cors'});
+    let recipeJSON = await response.json();
     console.log(recipeJSON);
     return recipeJSON;
   }
 
   async function useJSON() {
-    let myJSON = await fetchRecipeJSON();
+    let json = await fetchRecipeJSON();
     let results = "";
+    for (let i = 0; i < json.results.length; i++) {
+      results += json.results[i].title;
+    }
+    document.getElementById("")
   }
 
 });
