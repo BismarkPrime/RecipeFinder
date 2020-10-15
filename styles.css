@@ -1,0 +1,10 @@
+
+
+.navbar-brand img {
+    max-width: 200px;
+}
+
+#search-fields input {
+    display: flex;
+    flex-direction: column;
+}
