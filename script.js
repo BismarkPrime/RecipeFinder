@@ -1,12 +1,16 @@
 document.getElementById("recipeSubmit").addEventListener("click", function(event) {
   event.preventDefault();
   const value = document.getElementById("recipeInput").value;
-  if (value === "")
+  let value2 = document.getElementById("ingredientInput").value;
+  if (value === "" && value2 === "")
     return;
   console.log(value);
+  value2 = value2.replace(/\s+/g, '');
+
+  console.log(value2);
 
   var myUrl = "https://cors-anywhere.herokuapp.com";
-   myUrl += "/http://www.recipepuppy.com/api/?q=" + value;
+   myUrl += "/http://www.recipepuppy.com/api/?i=" + value2 + "&q=" + value;
   useJSON();
   async function fetchRecipeJSON() {
     const response = await fetch(myUrl, {mode: 'cors'});
@@ -23,11 +27,12 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
       let myIngStr = json.results[i].ingredients;
       let myIngArr = myIngStr.split(", ");
       let myPic = json.results[i].thumbnail;
+      let myLink = json.results[i].href;
 
       results += "<div class='card bg-light mb-3' style='max-width: 18rem;'>";
-      results += "<div class='card-header'><img src=" +  myPic + "></div>";
+      results += "<div class='card-header text-center'><img  style='border-radius: 15px; box-shadow: 0px 0px 8px 2px #888888;' src=" + myPic + "></div>";
       results += "<div class='card-body'>";
-      results += "<h5 class='card-title'>" + json.results[i].title + "</h5>";
+      results += "<h5 class='card-title'><a href =" + myLink + ">"+ json.results[i].title + "</a></h5>";
       results += "<p class='card-text'>";
       results += "<ul>";
       for (let j = 0; j < myIngArr.length; j++) {
