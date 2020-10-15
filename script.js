@@ -19,9 +19,34 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
     let json = await fetchRecipeJSON();
     let results = "";
     for (let i = 0; i < json.results.length; i++) {
-      results += json.results[i].title;
+
+      let myIngStr = json.results[i].ingredients;
+      let myIngArr = myIngStr.split(", ");
+      let myPic = json.results[i].thumbnail;
+
+      results += "<div class='card bg-light mb-3' style='max-width: 18rem;'>";
+      results += "<div class='card-header'><img src=" +  myPic + "></div>";
+      results += "<div class='card-body'>";
+      results += "<h5 class='card-title'>" + json.results[i].title + "</h5>";
+      results += "<p class='card-text'>";
+      results += "<ul>";
+      for (let j = 0; j < myIngArr.length; j++) {
+        results += "<li>" + myIngArr[j] + "</li>";
+      }
+      results += "</ul>";
+      results += "</p>";
+      results += "</div>";
+      results += "</div>";
+/*<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+*/
     }
-    document.getElementById("")
+    document.getElementById("searchResults").innerHTML = results;
   }
 
 });
