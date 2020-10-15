@@ -5,14 +5,22 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
     return;
   console.log(value);
 
-
-  const url = "http://www.recipepuppy.com/api/?q=" + value;
+  var myUrl = "https://cors-anywhere.herokuapp.com";
+   myUrl += "/http://www.recipepuppy.com/api/?q=" + value;
+  useJSON();
   async function fetchRecipeJSON() {
     const response = await fetch(url);
-    const recipeJSON = await response;
+    if (!response.ok) {
+      console.log("ERROR: the url wasn't valid")
+    }
+    const recipeJSON = await response.json;
     console.log(recipeJSON);
+    return recipeJSON;
   }
-  fetchRecipeJSON();
 
+  async function useJSON() {
+    let myJSON = await fetchRecipeJSON();
+    let results = "";
+  }
 
 });
