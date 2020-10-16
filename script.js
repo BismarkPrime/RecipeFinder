@@ -34,8 +34,8 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
         passedHalf = true;
         results += "</div><div class='col-md-6'>";
       }
-      results += "<div class='card bg-light mb-3 d-flex align-items-center' style='max-width: 25rem; box-shadow: 0px 0px 8px 3px #888888; margin-left: auto; margin-right:auto;'>";
-      results += "<div class='card-header text-center'><img  style='border-radius: 15px; box-shadow: 0px 0px 8px 2px #888888;' src=" + myPic + "></div>";
+      results += "<div class='card bg-light mb-3' style='max-width: 25rem; box-shadow: 0px 0px 8px 3px #888888; margin-left: auto; margin-right:auto;'>";
+      results += "<div class='card-header text-center' style='width:auto;'><img  style='border-radius: 15px; box-shadow: 0px 0px 8px 2px #888888;' src=" + myPic + "></div>";
       results += "<div class='card-body'>";
       results += "<h5 class='card-title'><a href =" + myLink + ">"+ json.results[i].title + "</a></h5>";
       results += "<div class='card-text' style='font-weight: bold;'>";
