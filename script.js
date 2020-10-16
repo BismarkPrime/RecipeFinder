@@ -20,16 +20,21 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
   }
 
   async function useJSON() {
+    let passedHalf = false;
     let json = await fetchRecipeJSON();
     let results = "";
+    results += "<div class='container'>";
+    results += "<div class='row'> <div class='col-md-6'>";
     for (let i = 0; i < json.results.length; i++) {
-
       let myIngStr = json.results[i].ingredients;
       let myIngArr = myIngStr.split(", ");
       let myPic = json.results[i].thumbnail;
       let myLink = json.results[i].href;
-
-      results += "<div class='card bg-light mb-3' style='max-width: 18rem;'>";
+      if (i >= (json.results.length / 2) && !passedHalf) {
+        passedHalf = true;
+        results += "</div><div class='col-md-6'>";
+      }
+      results += "<div class='card bg-light mb-3' style='max-width: 25rem; box-shadow: 0px 0px 8px 3px #888888;'>";
       results += "<div class='card-header text-center'><img  style='border-radius: 15px; box-shadow: 0px 0px 8px 2px #888888;' src=" + myPic + "></div>";
       results += "<div class='card-body'>";
       results += "<h5 class='card-title'><a href =" + myLink + ">"+ json.results[i].title + "</a></h5>";
@@ -51,6 +56,8 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
 </div>
 */
     }
+    results += "</div>"; //close last column
+    results += "</div>"; //close last row
     document.getElementById("searchResults").innerHTML = results;
   }
 
