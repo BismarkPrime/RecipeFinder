@@ -20,3 +20,7 @@ body {
 #search-fields input {
     width: 90%;
 }
+
+form {
+    text-align: center;
+}

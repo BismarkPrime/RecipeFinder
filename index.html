@@ -9,14 +9,13 @@
     <!-- <link href="../../fontawesome-free-5.15.1-web/css/fontawesome.css" rel="stylesheet">
     <link href="../../fontawesome-free-5.15.1-web/css/brands.css" rel="stylesheet">
     <link href="../../fontawesome-free-5.15.1-web/css/solid.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Recipe Finder</title>
 </head>
 
 <body>
     <!-- NAVIGATION -->
-    <nav navbar navbar-light>
+    <nav class="navbar navbar-light">
         <a class="navbar-brand" href="/index.html">
             <img src="/assets/brand.png" alt="RecipeFinder logo">
         </a>
@@ -24,17 +23,22 @@
 
     <div class="container">
         <form>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="fas fa-hamburger"></i></span>
-            <input type="search" name="recipeInput" id="recipeInput" class="form-control" placeholder="Search by recipe">
-            <span class="input-group-button"><button class="btn btn-secondary"><i class="fas fa-search"></i></button></span>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="fas fa-carrot"></i></span>
-            <input type="search" name="ingredientInput" id="ingredientInput" class="form-control" placeholder="Search by ingredients (comma delimited)">
-            <span class="input-group-button"><button class="btn btn-secondary"><i class="fas fa-search"></i></button></span>
-        </div>
-        <button class="btn btn-primary" id="recipeSubmit">Submit</button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-hamburger"></i></span>
+                </div>
+                <input type="search" name="recipeInput" id="recipeInput" class="form-control"
+                    placeholder="Search by recipe">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-carrot"></i></span>
+                </div>
+                <input type="search" name="ingredientInput" id="ingredientInput" class="form-control"
+                    placeholder="Search by ingredients (comma delimited)">
+            </div>
+            <button class="btn btn-primary" id="recipeSubmit">Search</button>
+        </form>
     </div>
 
     <div class="container" id="searchResults">
@@ -46,6 +50,8 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script src="https://kit.fontawesome.com/3fd8249b75.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
