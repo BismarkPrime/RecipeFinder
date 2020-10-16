@@ -34,18 +34,18 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
         passedHalf = true;
         results += "</div><div class='col-md-6'>";
       }
-      results += "<div class='card bg-light mb-3' style='max-width: 25rem; box-shadow: 0px 0px 8px 3px #888888;'>";
+      results += "<div class='card bg-light mb-3 d-flex align-items-center' style='max-width: 25rem; box-shadow: 0px 0px 8px 3px #888888; margin-left: auto; margin-right:auto;'>";
       results += "<div class='card-header text-center'><img  style='border-radius: 15px; box-shadow: 0px 0px 8px 2px #888888;' src=" + myPic + "></div>";
       results += "<div class='card-body'>";
       results += "<h5 class='card-title'><a href =" + myLink + ">"+ json.results[i].title + "</a></h5>";
-      results += "<p class='card-text'>";
+      results += "<div class='card-text' style='font-weight: bold;'>";
       results += "Ingredient List:";
-      results += "<ul>";
+      results += "<ul style='font-weight: normal;'>";
       for (let j = 0; j < myIngArr.length; j++) {
-        results += "<li>" + myIngArr[j] + "</li>";
+        results += "<li style='text-transform: capitalize;'>" + myIngArr[j] + "</li>";
       }
       results += "</ul>";
-      results += "</p>";
+      results += "</div>";
       results += "</div>";
       results += "</div>";
 /*<div class="card bg-light mb-3" style="max-width: 18rem;">

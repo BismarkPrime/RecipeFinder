@@ -1,8 +1,8 @@
 
 :root {
     --bg-color: whitesmoke;
-    --accent-color: #E60000;
-    --dark-accent-color: #990000;
+    --accent-color: #fc3434;
+    --dark-accent-color: #d10000;
 }
 
 html {
@@ -23,6 +23,14 @@ nav {
     max-width: 200px;
 }
 
+.input-group-text {
+    background-color: var(--dark-accent-color);
+}
+
+.input-group-text > i {
+    color: lightgrey;
+}
+
 #search-fields {
     display: flex;
     flex-direction: column;
@@ -37,8 +45,29 @@ form {
     text-align: center;
 }
 
+.btn {
+    background-color: var(--accent-color);
+    border: solid var(--dark-accent-color) 1px;
+    color: var(--bg-color);
+}
+
+.btn:hover {
+    background-color: var(--dark-accent-color);
+    border: solid var(--accent-color) 1px;
+    color: var(--bg-color);
+}
+
+a {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--dark-accent-color);
+}
+
 .dark-transparent {
-    background-color: rgba(0, 0, 0, .65);
+    background-color: rgba(0, 0, 0, .8);
 }
 
 footer {
