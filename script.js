@@ -5,7 +5,7 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
   if (value === "" && value2 === "")
     return;
   console.log(value);
-  value2 = value2.replace(/\s+/g, '');
+  value2 = value2.replace(",\s", ',');
 
   console.log(value2);
 
@@ -39,6 +39,7 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
       results += "<div class='card-body'>";
       results += "<h5 class='card-title'><a href =" + myLink + ">"+ json.results[i].title + "</a></h5>";
       results += "<p class='card-text'>";
+      results += "Ingredient List:";
       results += "<ul>";
       for (let j = 0; j < myIngArr.length; j++) {
         results += "<li>" + myIngArr[j] + "</li>";
